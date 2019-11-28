@@ -1,18 +1,20 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: migu's git blog
+email: migujeong@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
 #url: "http://yourdomain.com" # the base hostname & protocol for your site
 
 # Sidebar settings
-description: One sentence introducing yourself or what you do
-
+description: I'm insterested in.. 
+<ul>
+<li>Java and OOP</li>
+<li>Programming Languages</li>
+<li>Text mining</li>
+<li>Search Engine</li> 
+</ul>
 # Social icons
-facebook: username
-linkedin: username
-github: username
-deviantart: username
-codepen: username
+linkedin: migujeong@gmail.com
+github: maigumigu
 
 footer: © Taken theme
 
