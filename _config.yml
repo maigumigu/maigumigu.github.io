@@ -5,13 +5,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 #url: "http://yourdomain.com" # the base hostname & protocol for your site
 
 # Sidebar settings
-description: I'm insterested in.. 
-<ul>
-<li>Java and OOP</li>
-<li>Programming Languages</li>
-<li>Text mining</li>
-<li>Search Engine</li> 
-</ul>
+description: I'm insterested in languages
 # Social icons
 linkedin: migujeong@gmail.com
 github: maigumigu
