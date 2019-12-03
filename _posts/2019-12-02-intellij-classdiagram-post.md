@@ -74,7 +74,7 @@ UnivRankDTO 추가한 결과.
 
 ![img](https://lh5.googleusercontent.com/nzJYKWsjFwZAX28ghi7NFtGavr1gdDVky_iZDKB5YK0S7UcFwyGAPaO9ebzA651XL2VFVKNF1GXxnV4UoCC60ZbbrOrMOM4eO42ohBaFmPR9-JfMBa7iazWaS2mg8IhB-2_Kd5UK)
 
-{% youtube  http://youtu.be/eOoyHBOZWvo %}
+http://youtu.be/eOoyHBOZWvo
 
 설계 보고서를 작성할 때 IDE로 IntelliJ를 사용했다면 클래스 다이어그램 걱정은 끝난 것이나 다름없다 ^.^
 
