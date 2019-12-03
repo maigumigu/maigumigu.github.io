@@ -117,7 +117,7 @@ UnivRankDTO 추가한 결과.
 
 애니메이션이 궁금한 사람은 아래 링크 클릭!↓
 
-http://youtu.be/eOoyHBOZWvo
+[다이어그램레이아웃바꾸기영상](http://youtu.be/eOoyHBOZWvo)
 
 
 
