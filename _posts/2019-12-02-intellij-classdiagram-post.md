@@ -1,23 +1,85 @@
 ---
-title: "IntelliJ Honey functionality"
+title: "IntelliJ 개꿀기능(1) -클래스 다이어그램 그리는 법"
 date: 2019-12-02 10:34:28 -0400
 categories: IntelliJ
 ---
 
-## IntelliJ 개꿀기능(1) -drawling class diagram!
+학교나 회사에서 설계보고서를 작성할 때 가끔씩 클래스 다이어그램을 그릴 일이 있다. 개인적으론 Eclipse의 다이어그램 그리는 기능이 불편했다. 그런데 이번에 IntelliJ의 기능을 체험하고 사용성이 너무 좋다고 느껴서 호다닥 포스팅을 하러 왔다.
 
-![](C:\git\maigumigu.github.io\images\IntelliJ\diagram1.PNG)
+샘플 프로젝트는 내 토이 프로젝트를 사용하였다.
 
-![diagram2](C:\git\maigumigu.github.io\images\IntelliJ\diagram2.PNG)
 
-![diagram3_1](C:\git\maigumigu.github.io\images\IntelliJ\diagram3_1.PNG)
 
-![diagram3_2](C:\git\maigumigu.github.io\images\IntelliJ\diagram3_2.PNG)
+## 1. 다이어그램 그리기
 
-![diagram4](C:\git\maigumigu.github.io\images\IntelliJ\diagram4.PNG)
+다이어그램을 그리고 싶은 클래스에서 오른쪽 마우스 클릭한다.
 
-![diagram5](C:\git\maigumigu.github.io\images\IntelliJ\diagram5.PNG)
+여러개 클래스를 선택해서 한 캔버스 안에 그릴 수도 있다. 나는 하나만 선택하였다.
 
-![diagram6](C:\git\maigumigu.github.io\images\IntelliJ\diagram6.PNG)
+![](..\images\diagram1.PNG)
 
-![diagram7](C:\git\maigumigu.github.io\images\IntelliJ\diagram7.PNG)
+
+
+다이어그램 타입에서 Class Diagrams 선택하기.
+
+![diagram2](..\images\diagram2.PNG)
+
+
+
+## 2. 다이어그램 결과
+
+UnivRankTsv가 BasicTsvParser를 상속 받고 있으므로 실선 화살표가 위로 향해 있다.
+
+우리가 일반적으로 아는 클래스 다이어그램의 모양은 아닌 것을 알 수 있다. 
+
+![diagram3_1](..\images\diagram3_1.PNG)
+
+이 때 위의 메뉴에 다음과 같은 인터페이스들이 존재한다. 표시하고 싶은 클래스 요소들을 선택할 수도 있는 것이다!
+
+![diagram3_2](..\images\diagram3_2.PNG)
+
+- f : 필드
+
+- m★: 생성자
+
+- m: 메소드
+
+- p :프로퍼티
+
+- i : 이너 클래스
+
+  
+
+다음은 필드와 메소드를 선택하고 인터페이스에서 링크를 선택한 결과이다.
+
+![diagram4](..\images\diagram4.PNG)
+
+UnivRankTsvParser와 상속관계는 아니지만 멤버 함수들의 파라미터인 'ArrayList<UnivRankDTO>' 를 추가할 수도 있다. 스페이스바 누르고 클래스 이름 입력하면 끄읕!
+
+ 
+
+![diagram5](..\images\\diagram5.PNG)
+
+
+
+UnivRankDTO 추가한 결과.
+
+![diagram6](..\images\diagram6.PNG)
+
+## 3. 다이어그램 원하는 모양으로 만들기
+
+사실 내가 가장 좋았던 건 다이어그램의 레이아웃을 자유자재로 변경할 수 있다는 것이었다.
+
+오른쪽 마우스 메뉴의 Layout에서 원하는 레이아웃을 선택하면 애니메이션과 함께 레이아웃이 변경된다.
+
+![diagram7](..\images\diagram7.PNG)
+
+
+
+{ % youtube https://www.youtube.com/watch?v=eOoyHBOZWvo % }
+
+
+
+설계 보고서를 작성할 때 IDE로 IntelliJ를 사용했다면 클래스 다이어그램 걱정은 끝난 것이나 다름없다 ^.^
+
+여러분 모두 IntelliJ 하세요~(학생은 1년 무료)
