@@ -1,7 +1,7 @@
 ---
 title: "spring boot 호다닥 공부하기 (1)"
 date: 2017-10-20 08:26:28 -0400
-categories: springboot
+categories: Springboot
 ---
 # **Spring Boot 호다닥 공부하기 (1)**
 

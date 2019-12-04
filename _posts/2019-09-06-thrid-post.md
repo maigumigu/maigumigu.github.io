@@ -1,7 +1,7 @@
 ---
 title: "spring boot 호다닥 공부하기 (2)"
 date: 2019-09-06 08:26:28 -0400
-categories: springboot
+categories: Springboot
 ---
 
 # **Spring Boot 호다닥 공부하기 (2)
@@ -124,14 +124,25 @@ AppRunner 클래스가 Spring Framework의 component라는 것을 denote해주�
 
 출처: https://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in
 
-```
-│ Annotation │ Meaning                                             │
-├────────────┼─────────────────────────────────────────────────────┤
-│ @Component │ generic stereotype for any Spring-managed component │
-│ @Repository│ stereotype for persistence layer(access DB)         │
-│ @Service   │ stereotype for service layer(logic,calculation)     │
-│ @Controller│ stereotype for presentation layer (spring-mvc)	   |
-```
+
+
+>
+> @Component
+
+generic stereotype for any Spring-managed component
+
+> @Repository
+
+stereotype for persistence layer(access DB)       
+
+> @Service
+
+stereotype for service layer(logic,calculation)
+
+> @Controller
+
+stereotype for presentation layer (spring-mvc)
+
 
 
 

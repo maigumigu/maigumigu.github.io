@@ -1,7 +1,7 @@
 ---
 title: "Java Collection - Comparable과 Comparator"
 date: 2019-11-05 15:17:00 -0400
-categories: java
+categories: Java
 ---
 
 ## 문제 상황
