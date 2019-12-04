@@ -4,5 +4,22 @@ title: About
 permalink: /about/
 ---
 
-My name is Chanmi Jeong and I'm interested in languages.
+
+Hello,
+my name is Chanmi Jeong.
+
+I'm interested in...
+
+- Text mining
+  - Natural Language Processing
+  - Search Engine
+- Novice Developers
+  - Search Query Augmentation
+- Java
+  - OOP
+  - ORM
+- Contemporary Art
+
+Contact:
+migujeong@gmail.com
 
