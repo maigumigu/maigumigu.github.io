@@ -31,7 +31,7 @@ TDD 라는 단어의 의미가 정확히 실제 프로젝트에서 어떻게 적
 
 Commit Driven Development
 
-흥미로운 포스팅(https://hofmannsven.com/2019/commit-message-driven-development)
+흥미로운 포스팅[Commit Message Driven Development](https://hofmannsven.com/2019/commit-message-driven-development)
 에서 사용했던 텀.
 
 일반적으로는  일단 코딩을 막 한 다음 커밋 메세지를 쓸 때 메세지를 생각한다.
