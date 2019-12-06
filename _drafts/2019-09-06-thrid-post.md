@@ -1,6 +1,6 @@
 ---
 title: "spring boot 호다닥 공부하기 (2)"
-date: 2019-09-06 08:26:28 -0400
+[comment]: # (date: 2019-09-06 08:26:28 -0400)
 categories: Springboot
 ---
 
