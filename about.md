@@ -4,7 +4,6 @@ title: About
 permalink: /about/
 ---
 
-
 Hello,
 my name is Chanmi Jeong.
 
@@ -21,5 +20,5 @@ I'm interested in...
 - Contemporary Art
 
 Contact:
-migujeong@gmail.com
+[migujeong@gmail.com](migujeong@gmail.com)
 
