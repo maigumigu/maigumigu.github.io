@@ -46,7 +46,15 @@ Commit Driven Development
 
 좋은 커밋 메세지에 대해서도 고민하게되는 좋은 포스팅임. 한번더 읽어봐야지
 
+커밋 관련 좋은 포스트 추가:
 
+1. 커밋 할 때 사용하면 좋은 term들: https://blog.ull.im/engineering/2019/03/10/logs-on-git.html2
+2. 커밋 메세지 컨벤션
+
+> [영문 포스트]
+> https://udacity.github.io/git-styleguide/
+> [한글 포스트]
+> https://djkeh.github.io/articles/How-to-write-a-git-commit-message-kor/
 
 
 

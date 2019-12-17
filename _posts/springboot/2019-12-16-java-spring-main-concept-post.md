@@ -14,6 +14,8 @@ categories: Springboot
 
 - 강의 링크  
   [https://www.inflearn.com/course/spring_revised_edition#](https://www.inflearn.com/course/spring_revised_edition#)
+  
+*****
 
 # IoC (Inversion of Control)
 
@@ -187,18 +189,23 @@ class OwnerController {
 
 3. 명시적인 생성자 주입 및 setter 주입과는 달리 @Autowired 어노테이션만으로 암시적으로 의존성 주입이 이루어진다. 의존성은 명시적일수록 좋으니까.
 
-   ~~******왜? 유지보수 때문에? autowired도 명시적인 것 아닌가? 이거는 궁금증이 남는다.~~
+   ~~왜? 유지보수 때문에? autowired도 명시적인 것 아닌가? 이거는 궁금증이 남는다.~~
 
    ~~백기선님은 생성자 주입을 하면 반드시 있어야 하는 객체의 의존성 주입을 강제할 수 있기 때문에 좋다고 하셨는데 명시성과 관련이 있는 얘기인지는 모르겠다~~
 
-출처: [왜 필드 주입을 추천하지 않는가](https://blog.marcnuri.com/field-injection-is-not-recommended/)
-******
+출처: [English: 왜 필드 주입을 추천하지 않는가](https://blog.marcnuri.com/field-injection-is-not-recommended/)  
+
+*****
 
 # AOP (Aspect Oriented Programming)
 
+https://www.tutorialspoint.com/spring/aop_with_spring.htm
 
+와 여기 도입부 설명 너무 잘했다 
 
-******
+logging, auditing, declarative transactions, security, caching
+
+*****
 
 # PSA
 
