@@ -183,7 +183,7 @@ class OwnerController {
 
 1. final 키워드가 들어가지 않기 때문에 주입된 의존성이 변하지 않을 것이라는 보장이 없다고 한다.
 
-2. IoC Container와 결합성이 높아진다. (객체지향적 설계에서 클래스간 결합도는 낮추고 클래스 자체의 응집력을 높이는 것이 좋다. low coupling, high cohesion)
+2. IoC Container와 결합성이 높아진다. (객체지향적 설계에서 클래스간 결합도는 낮추고 클래스 자체의 응집력을 높이는 것이 좋다. *low coupling, high cohesion*)
 
 3. 명시적인 생성자 주입 및 setter 주입과는 달리 @Autowired 어노테이션만으로 암시적으로 의존성 주입이 이루어진다. 의존성은 명시적일수록 좋으니까.
 
@@ -196,10 +196,131 @@ class OwnerController {
 
 # AOP (Aspect Oriented Programming)
 
+### AOP의 니즈
+
+코딩을 하다보면 여러곳에 흝어져 있지만 동일한 내용의 코드가 반복되는 것을 보게 된다.  
+
+보통 그런 코드들은 핵심 로직과 별개로 부수적인 설정, 로직에 가까울 때가 많다.
+
+대표적인 것이 JDBC에서의 transaction 처리이다.
+
+```java
+connection.setAutoCommit(false);  
+//transaction scope
+// 1. 이거 삭제해
+// 2. 이거 추가해
+// 3. 어쩌구 저쩌구
+connection.commit();              
+```
+
+transaction을 해야할 때 마다 autocommit을 false로 해주고 commit를 해주는 코드가 들어간다.  
+
+이런 반복되는 코드들을 하나의 모듈로 만들어서 처리하고,  
+
+원래 코드에서는 핵심로직에 집중할 수 있도록 하는 것이 AOP이다.  
+
+### AOP의 적용
+
+transaction을 명시하는 경우 외에도 logging, caching 등의 작업에 이용될 수 있을 것 같다.  
+
+### 관점이라는 용어랑 AOP가 무슨 관계지?
+
+그런데 AOP의 의미 자체에 대해 생각하면 혼란스럽다. Aspect를 번역하면 '관점'이라는 말이 된다.  
+
+그렇다면 AOP는 관점 지향 프로그래밍으로 해석 된다. 어떤 관점을 의미하는 거지?라는 의문에 빠질 수 있다.  
+
+그러므로 관점이라는 말에 너무 얽매이지 말고, Aspect라는 term을 새롭게 바라보는 게 이해에 도움이 된다. 
+
+### Aspect를 새롭게 정의하자면,
+
+여러 클래스에 흝어져 있는 동일한 코드가 존재하는 경우, 이 코드들을 모듈화한 결과물, 즉 코드를 의미한다.  
+
+### Proxy 패턴을 통한 AOP지원
+
+AOP 지원 방식에는 AspectJ 등 다양한 방법이 있지만, Spring은 Proxy Pattern을 통해 지원하고 있다.
+
+Proxy 패턴에서는 Proxy(대리하는 애)가 Client의 요청이 들어오면,  
+
+수행해야할 태스크들을 위임하여 Aspect들이 기능하도록 한다. 
+
+### @Transactional
+
+spring에서는 @Transactional 어노테이션을 지원하고,
+
+transaction 작업이 필요한 메소드 시그니처 부분에 적어두면 spring 내부적으로 transaction 처리를 해준다. 
+
+다음의 예시 코드는 JPA 지식이 조금 필요하지만 일단 @Query 아규먼트 부분의 기능을 하는 함수라고 이해하면 된다.
+
+```java
+@Query("SELECT DISTINCT owner FROM Owner owner left join fetch owner.pets WHERE owner.firstName LIKE CONCAT('%',:Name,'%')")
+@Transactional(readOnly = true)
+Collection<Owner> findAllByFirstName(@Param("Name") String firstName);
+```
+
+### @Aspect
+
+Aspect를 커스터마이징해서 사용할 수 있는 @Aspect 어노테이션도 제공한다. 
+
+예를들어 @LogExecutionTime라는 어노테이션을 만들어 다음과 같이 사용하고자 한다. @LogExecutionTime이라는 이름에서 알 수 있듯이 소요 시간을 측정해 프린트해주는 기능을 가지고 있다. 
+
+```java
+    @GetMapping("/owners/find")
+    @LogExecutionTime
+    public String initFindForm(Map<String, Object> model) {
+        model.put("owner", new Owner());
+        return "owners/findOwners";
+    }
+```
+
+1. 먼저 LogExecutionTime라는 이름의 어노테이션 인터페이스를 만들어준다. 
+
+@Target 어노테이션을 통해 해당 어노테이션을 메소드에 대해 적용해줄 것과, runtime까지 유지하고 있을 것을 명시한다.
+
+```java
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface LogExecutionTime {
+}
+```
+
+2. LogAspect라는 이름의 클래스를 만들어 준다.  
+
+   @Component와 @Aspect 어노테이션을 추가해서 해당 aspect를 IoC 컨테이너가 관리하도록 명시해준다.
+
+    @Around annotation을 통해 @LogExecutionTime이 달린 메소드 *전후*에 logExecutionTime를 실행한다는 뜻이다.
+
+```java
+@Component
+@Aspect
+public class LogAspect {
+    Logger logger = LoggerFactory.getLogger(LogAspect.class);
+
+    @Around("@annotation(LogExecutionTime)")
+    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable
+    {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+
+        Object proceed = joinPoint.proceed();
+
+        stopWatch.stop();
+        logger.info(stopWatch.prettyPrint());
+
+        return proceed;
+    }
+}
+```
+
 
 
 ******
 
 # PSA
 
-Modularity
+분량을 늘려서 설명할 순있지만 Portable Service Abstraction이라는 용어에 담긴 의미말고는 뭐를 더 설명해야 할지 모르겠다.  
+
+PSA를 통해 코드 변경 거의 없이 또 다른 기술 스택으로 변경 가능하다. 좀더 공부하고 중요한 포인트를 발견하면 설명을 추가해야 겠다.  
+
+
+
+지금까지 spring triangle이라고 불리는 IoC, AOP,PSA에 대해 알아보았다.
