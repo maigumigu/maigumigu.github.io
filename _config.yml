@@ -1,7 +1,7 @@
 # Site settings
 title: migu's git blog
 email: migujeong@gmail.com
-baseurl: "/about" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 #url: "http://yourdomain.com" # the base hostname & protocol for your site
 
 # Sidebar settings
