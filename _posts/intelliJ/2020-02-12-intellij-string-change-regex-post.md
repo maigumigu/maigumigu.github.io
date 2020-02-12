@@ -8,7 +8,7 @@ categories: IntelliJ
 
 정규식으로 검색할 수 있는 기능은 sublime text, vscode등의 다른 에디터들에서도 지원한다.
 
-특별하게 IntelliJ에서는  검색된 문자열을 그룹화및 변수화하.여
+특별하게 IntelliJ에서는  검색된 문자열을 그룹화및 변수화하여
 
 코드 일괄 수정이 필요한 경우 유용한 기능을 제공한다.
 
